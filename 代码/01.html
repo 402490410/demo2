@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+
+    <div id="box">
+        <p>名称：{{title}}</p>
+        <p>数量：
+            <button @click='num=num-1'>-</button>{{num}}
+            <button @click='num=num+1'>+</button>
+        </p>
+        <p>单价：{{price}}</p>
+        <p>总价:{{num}}*{{price}}</p>
+        
+    </div>
+    <script>
+
+        
+
+        //实例化
+        new Vue({
+            el:"#box",
+            data:{
+                title:"haha",
+                price:3888,
+                num:1
+            }
+        })
+
+    </script>
+    
+</body>
+</html>

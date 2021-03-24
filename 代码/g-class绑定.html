@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+<style>
+    .aclass{
+        color: red;
+    }
+    .bclass{
+        color: blue;
+    }
+    .cclass{
+        font-size: 30px;
+    }
+</style>
+<body>
+    
+    <div id="box">
+        <h2>1.class绑定：</h2>
+        <p :class="p1" class="cclass">woshi p1</p>
+        <p :class="{aclass:isA,bclass:isB}">woshi p2</p>
+        
+        <h2>2.style绑定:</h2>
+        <p :style="{color:c1,fontSize:fs}">pppppppp</p>
+        <button @click="fun1">更新</button>
+        
+
+    </div>
+    <script>
+        new Vue({
+            el:'#box',
+            data:{
+                p1:'aclass',
+                isA:true,
+                isB:false,
+                c1:'red',
+                fs:'40px'
+            },
+            methods:{
+                fun1(){
+                    this.p1='bclass';
+                    this.isA=false;
+                    this.isB=true;
+                    this.c1 = 'green',
+                    this.fs = '10px'
+
+                }
+            }
+        })
+    </script>
+</body>
+</html>

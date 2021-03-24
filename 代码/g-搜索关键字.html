@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+
+    <div id="box">
+        <input type="text" v-model="searchName">
+        <ul>
+            <li v-for="(item,index) in persons" :key="index">
+                {{index}}---{{item.name}}----{{item.age}}
+            </li>
+        </ul>
+        <button @click="upSort">年龄升序</button>
+        <button>年龄降序</button>
+        <button @click="Sort">原本顺序</button>
+    </div>
+
+
+<script>
+    new Vue({
+            el:'#box',
+            data:{
+                searchName:'',
+                persons:[
+                    {name:'tom',age:18},
+                    {name:'jack',age:20},
+                    {name:'bob',age:22},
+                    {name:'rose',age:24},
+                    {name:'tbs',age:10}
+                ],
+                newPersons:this.persons
+            },
+            methods:{
+                upSort(){
+                    let arr = [];
+                    //筛选数据
+                    for(let i=0;i<this.persons.length;i++){
+                        if(this.persons[i].name.indexOf(this.searchName)!=(-1)){
+                            arr.push(this.persons[i]);
+                        }
+                    }
+                    //升序
+                    for(let j=0;j<arr.length;j++){
+                        for(let i=j+1;i<arr.length;i++){
+                            if(arr[i].age>arr[j].age){
+                                let obj = arr[i];
+                                arr[i] = arr[j];
+                                arr[j] = obj;
+                            }
+                        }
+                    }
+                    this.persons = arr
+                    console.log(this.persons);
+
+                    
+                },
+                Sort(){
+                    this.persons
+                }
+            }
+        })
+</script>
+    
+</body>
+</html>

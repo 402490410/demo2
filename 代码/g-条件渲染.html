@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<body>
+    
+    <div id="box">
+        <p v-if="ok">成功了</p>
+        <p v-else>失败了</p>
+        <p v-show="ok">成功</p>
+        <p v-show="!ok">失败</p>
+        <button @click="ok=!ok">切换</button>
+    </div>
+
+
+    <script>
+        new Vue({
+            el:'#box',
+            data:{
+                ok:false,
+                no:true
+            }
+        })
+    </script>
+    
+    
+</body>
+</html>

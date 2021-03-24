@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <img :src="url">
+        {}:{{a}} <br>
+        --html<p v-html="a"></p>
+        --text<p v-text="a"></p>
+
+        <h3 @click="fun1()">点我</h3>
+        <h3 @click="fun2">222</h3>
+        <h3 v-html="num"></h3>
+
+    </div>
+
+    <script>
+        let a= "https://dss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3363295869,2467511306&fm=26&gp=0.jpg"
+        new Vue({
+            el:"#app",
+            data:{
+                name:"妲己",
+                age:18,
+                a:"<h1>我是h1</h1>",
+                url:a,
+                num:new Date()
+            },
+            methods:{
+                fun1:function(){
+                    console.log("fun1");
+                },
+                fun2(){
+                    console.log("fun2");
+                }
+            }
+        })
+    </script>
+</body>
+</html>

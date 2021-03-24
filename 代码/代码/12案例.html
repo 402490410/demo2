@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div>
+      <h4>输入表</h4>
+      <p>姓名：<input type="text" v-model="name"></p>
+      <p>年龄：<input type="text" v-model="age"></p>
+      <button @click="add()">添加</button>
+      <button @click="reset()">重置</button>
+    </div>
+    <div>
+      <h4>信息表</h4>
+      <table border="1" width="500" style="border-collapse: collapse;">
+        <tr>
+          <th>序号</th>
+          <th>姓名</th>
+          <th>年龄</th>
+          <th>操作</th>
+        </tr>
+        <tr v-for="(item,index) in arr" :key="index">
+          <td>{{index+1}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.age}}</td>
+          <td>
+            <button @click="del(index)">删除</button>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="4">
+            <button @click="delAll()" v-if="arr.length>0">全部删除</button>
+            <span v-else>暂无数据</span>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        name: "",
+        age: "",
+        arr: [{
+          name: "张三",
+          age: 18
+        }, {
+          name: "李四",
+          age: 28
+        }, {
+          name: "王五",
+          age: 38
+        }]
+      },
+      methods: {
+        // 添加
+        add() {
+          // 第一种写法
+          // let obj = {}
+          // obj.name = this.name
+          // obj.age = this.age
+          // this.arr.push(obj)
+
+          // 第二种写法
+          this.arr.push({
+            name : this.name,
+            age : this.age
+          })
+          // 添加之后调用一下重置的方法
+          this.reset()
+        },
+        // 重置
+        reset(){
+          this.name = ""
+          this.age = ""
+        },
+        // 删除
+        del(index){
+          // splice(参数一，参数二)     删除数组的某项，第一个参数表示从第几项开始，第二个参数表示删除的个数。如果只传一个参数，表示从当前索引删除到结尾
+          this.arr.splice(index,1)
+        },
+        // 全部删除
+        delAll(){
+          // 第一种方法
+          // this.arr = []
+          // 第二种方法
+          this.arr.splice(0)
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <!-- v-if     true显示  false隐藏 -->
+    <p v-if="true">{{name}}</p>
+    <!-- v-if     0隐藏 非0显示 -->
+    <p v-if="1">{{name}}</p>
+
+    <p v-if="flag">{{name}}</p>
+
+    <p v-if="arr.length>0">哈哈哈，我是妲己</p>
+    <p v-if="arr.length==0">暂无数据</p>
+    <hr>
+    <!-- v-else一定要紧挨着v-if -->
+    <p v-if="arr.length>0">哈哈哈,我是妲己</p>
+    <p v-else>暂无数据</p>
+    <hr>
+    <button @click="isTrue=!isTrue">切换</button>
+    <p v-if="isTrue">锦瑟无端五十弦，一弦一柱思华年</p>
+
+  </div>
+
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        name: "妲己",
+        flag: true,
+        arr: [],
+        isTrue:true
+      }
+    })
+  </script>
+</body>
+
+</html>

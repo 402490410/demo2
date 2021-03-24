@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/moment.js/2.29.1/moment.js"></script>
+</head>
+<body>
+    <div id="box">
+        <!-- <p>{{date}}</p> -->
+        <!-- <p>date:{{date | datesting}}</p> -->
+        <p ref="a">pppp</p>
+        <button @click="hidt()"> btn</button>
+    </div>
+
+<script>
+    //定义过滤器
+    /* Vue.filter('datesting',(value)=>{
+        return moment(value).format("MMM Do YY");;
+    }); */
+    new Vue({
+        el:'#box',
+        /* data(){
+            return{
+                date:new Date()
+            }
+        } */
+        data:{
+            hidt(){
+                alert(this.$refs.a.textContent)
+            }
+        }
+    })
+</script>
+    
+</body>
+</html>

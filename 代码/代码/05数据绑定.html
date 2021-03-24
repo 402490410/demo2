@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h4>{{}}</h4>
+    {{title}}
+    {{msg}}
+    <p>hello，{{title}}</p>
+    <!-- 会按照js的语法解析 -->
+    <p>{{"hello，"+title}}</p>
+    <!-- 表达式 -->
+    <p>{{time.getTime()}}</p>
+    <!-- 一定不要写<，因为<会被解析成开标签 -->
+    <p>{{arr.length>2?title:""}}</p>
+    <hr>
+    <h4>v-html</h4>
+    <p v-html="title"></p>
+    <p v-html="msg"></p>
+    <hr>
+    <h4>v-text</h4>
+    <p v-text="title"></p>
+    <p v-text="msg"></p>
+  </div>
+
+  <script>
+    new Vue({
+      el:"#app",
+      data:{
+        title:"王昭君",
+        msg:"<b>云想衣裳花想容，春风拂槛露华浓</b>",
+        time:new Date(),
+        arr:["冬瓜","西瓜","哈密瓜"]
+      }
+    })
+  </script>
+</body>
+</html>

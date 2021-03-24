@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./node_modules/vue/dist/vue.js"></script>
+  <style>
+    img{
+      width: 200px;
+      height: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <p v-for="(item,index) in arr">
+      {{item}}-----{{index}}
+    </p>
+    <hr>
+    <ul>
+      <li v-for="item in arr2">{{item}}</li>
+    </ul>
+    <hr>
+    <h3>评论</h3>
+    <ul>
+      <li v-for="item in arr3">
+        <p>用户：{{item.name}}</p>
+        <p>内容：{{item.con}}</p>
+      </li>
+    </ul>
+    <hr>
+    <h3>赞助商</h3>
+    <a v-for="item in arr4" :href="item.aHref" :title="item.title">
+      <img :src="item.logo">
+    </a>
+  </div>
+
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        arr: ["a", 'b', 'c', 'd', 'e', 'f'],
+        arr2: ["妲己", "王昭君", "孙尚香", "周瑜"],
+        arr3: [{
+          name: "张三",
+          con: "已下单，期待收货"
+        }, {
+          name: "李四",
+          con: "已下单，不知道敏感肌能不能使用"
+        }, {
+          name: "王五",
+          con: "差评差评差评，啥都不是"
+        }, {
+          name: "赵六",
+          con: "物流很快，半夜下单，早晨到了，以为在很远的地方，原来就在我家隔壁"
+        }],
+        arr4: [{
+          logo: "https://www.baidu.com/img/PCpad_012830ebaa7e4379ce9a9ed1b71f7507.png",
+          aHref: "https://www.baidu.com",
+          title: "百度百度百度"
+        }, {
+          logo: "http://www.ujiuye.com/sem/bcjz/images/logo.png",
+          aHref: "http://www.ujiuye.com/",
+          title: "优就业优就业"
+        }, {
+          logo: "https://img.alicdn.com/tfs/TB1R5fsgyDsXe8jSZR0XXXK6FXa-281-80.jpg",
+          aHref: "https://uland.taobao.com/",
+          title: "淘宝淘宝淘宝"
+        }]
+      }
+    })
+  </script>
+</body>
+
+</html>

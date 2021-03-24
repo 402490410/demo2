@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <!-- 正常写法 -->
+    <img v-bind:src="imgUrl" v-bind:imgTitle="haha">
+    <!-- 简写 -->
+    <img :src="imgUrl" :imgTitle="haha">
+    <a :href="aHref">点击跳转到百度</a>
+  </div>
+
+  <script>
+    new Vue({
+      el:"#app",
+      data:{
+        imgUrl:"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=121352583,3553479540&fm=26&gp=0.jpg",
+        haha:"哈哈哈哈",
+        aHref:"https://www.baidu.com"
+      }
+    })
+  </script>
+</body>
+</html>

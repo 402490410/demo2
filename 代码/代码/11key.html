@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <!-- 
+      vue采用的是“就地更新”原则，所以我们在使用v-for的时候需要给每一条数据设置一个key，作为唯一标识，让vue根据key的条件做对比，一般情况下我们使用id
+     -->
+    <button @click="toggle()">点击将庄周变成貂蝉</button>
+    <p v-for="item in arr" :key="item.id">{{item.name}}</p>
+  </div>
+
+  <script>
+    new Vue({
+      el:"#app",
+      data:{
+        arr:[{
+          id:1,
+          name:"妲己"
+        },{
+          id:2,
+          name:"王昭君"
+        },{
+          id:3,
+          name:"孙尚香"
+        },{
+          id:4,
+          name:"庄周"
+        }]
+      },
+      methods:{
+        toggle(){
+          this.arr[3].name="貂蝉"
+        }
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <button @click="fn1()">点击执行fn1函数</button>
+    <button @click="fn2()">点击执行fn2函数</button>
+  </div>
+  
+
+  <script>
+    new Vue({
+      el:"#app",
+      // 用来存放方法的
+      methods:{
+        // 正常写法
+        fn1:function(){
+          console.log("我是fn1函数")
+        },
+        // 简写
+        fn2(){
+          console.log("我是fn2函数")
+        }
+      }
+    })
+  </script>
+</body>
+</html>

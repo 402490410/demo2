@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 1、引入 -->
+  <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+
+  <div id="app">
+    {{name}}
+  </div>
+  
+
+  <script>
+    // 2、实例化
+    new Vue({
+      // 挂载点
+      // 挂载点会根据css选择器来选择对应的挂载位置
+      // 如果匹配到多个挂载点，只有第一个生效，后面的不生效
+      // 不要将vue挂载到html或者body上
+      // 我们推荐使用id，直接挂载到这个id上，因为id具有唯一性
+      el:"#app",
+      data:{
+        name:"妲己"
+      }
+    })
+  </script>
+</body>
+</html>
